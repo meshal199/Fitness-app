@@ -44,7 +44,7 @@ export default function Register() {
           </select>
         </label>
         <button className="primary-button" type="submit">Register</button>
-        <Link to="/login">Already have an account?</Link>
+        <Link to="/login?form=1">Already have an account?</Link>
       </form>
     </main>
   );

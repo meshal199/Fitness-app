@@ -28,7 +28,7 @@ export default function Landing() {
     <main className="landing-page" dir="rtl">
       <nav className="landing-nav">
         <div className="landing-brand">مدير البرامج التدريبية</div>
-        <Link className="secondary-button" to="/login">تسجيل الدخول</Link>
+        <Link className="secondary-button" to="/login?form=1">تسجيل الدخول</Link>
       </nav>
 
       <section className="landing-hero">

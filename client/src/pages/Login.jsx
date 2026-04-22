@@ -1,14 +1,21 @@
 import { Dumbbell } from "lucide-react";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("coach@example.com");
   const [password, setPassword] = useState("password123");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (location.search !== "?form=1") {
+      navigate("/", { replace: true });
+    }
+  }, [location.search, navigate]);
 
   async function handleSubmit(event) {
     event.preventDefault();
