@@ -85,6 +85,7 @@ This repo includes deployment config for a simple public demo:
 
 - `render.yaml` deploys the Express API from `server/`
 - `client/vercel.json` deploys the Vite frontend from `client/`
+- `.github/workflows/deploy-client-pages.yml` deploys the Vite frontend to GitHub Pages
 - `client/.env.example` shows the frontend API variable
 
 ### 1. Database
@@ -135,7 +136,30 @@ VITE_API_URL=https://your-render-service.onrender.com/api
 
 Redeploy after changing environment variables.
 
-### 4. Seed Demo Data
+### 4. Frontend on GitHub Pages
+
+GitHub Pages can host only the static React frontend. The Express API still needs Render or another Node host.
+
+In GitHub:
+
+1. Open the repo settings.
+2. Go to **Pages**.
+3. Set **Source** to **GitHub Actions**.
+4. Add a repository variable or secret named `VITE_API_URL`:
+
+```env
+VITE_API_URL=https://your-render-service.onrender.com/api
+```
+
+5. Push to `main` or run the workflow manually.
+
+The frontend URL will be:
+
+```txt
+https://meshal199.github.io/Fitness-app/
+```
+
+### 5. Seed Demo Data
 
 After Atlas is ready, seed the demo users and 4-day program against the hosted database:
 
