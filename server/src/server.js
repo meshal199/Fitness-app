@@ -16,9 +16,19 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5002;
+
+function normalizeOrigin(value) {
+  try {
+    return new URL(value).origin;
+  } catch {
+    return value;
+  }
+}
+
 const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173,http://localhost:5174")
   .split(",")
   .map((origin) => origin.trim())
+  .map(normalizeOrigin)
   .filter(Boolean);
 
 app.use(helmet());
