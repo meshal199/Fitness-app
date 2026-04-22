@@ -13,7 +13,7 @@ export default function Register() {
     setError("");
     try {
       await register(form);
-      navigate("/");
+      navigate("/app");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     }

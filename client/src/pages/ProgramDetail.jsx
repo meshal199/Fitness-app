@@ -41,7 +41,7 @@ export default function ProgramDetail() {
           <p>{program.description}</p>
         </div>
         {isCoach && (
-          <Link className="secondary-button" to={`/programs/${id}/edit`}>
+          <Link className="secondary-button" to={`/app/programs/${id}/edit`}>
             <Edit3 size={18} /> Edit
           </Link>
         )}

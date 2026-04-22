@@ -555,6 +555,124 @@ body {
     gap: 0.5rem;
   }
 
+  .landing-page {
+    min-height: 100vh;
+    padding: 1.25rem clamp(1rem, 4vw, 4rem) 3rem;
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, 0.86), rgba(237, 255, 245, 0.76)),
+      url("../assets/fitness-bg.png") center/cover fixed;
+  }
+
+  .landing-nav {
+    max-width: 1180px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .landing-brand {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #0f4f3b;
+  }
+
+  .landing-hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(320px, 0.8fr) minmax(420px, 1.2fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .landing-copy {
+    display: grid;
+    gap: 1.15rem;
+  }
+
+  .landing-copy h1 {
+    margin: 0;
+    color: #10201b;
+    font-size: clamp(2.4rem, 5vw, 4.9rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .landing-copy > p:not(.eyebrow) {
+    margin: 0;
+    color: #32413d;
+    font-size: 1.28rem;
+    line-height: 1.6;
+  }
+
+  .landing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.4rem;
+  }
+
+  .landing-screenshots {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .landing-screenshots figure {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 55px rgba(23, 33, 31, 0.14);
+  }
+
+  .landing-screenshots figure:first-child {
+    transform: rotate(-1deg);
+  }
+
+  .landing-screenshots figure:last-child {
+    width: 82%;
+    justify-self: end;
+    transform: rotate(1deg);
+  }
+
+  .landing-screenshots img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 30vw, 360px);
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .landing-screenshots figcaption {
+    padding: 0.75rem 0.9rem;
+    color: #0f4f3b;
+    font-weight: 800;
+  }
+
+  .landing-points {
+    max-width: 1180px;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .landing-points div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.9rem 1rem;
+    color: #10201b;
+    font-weight: 800;
+    box-shadow: 0 14px 34px rgba(23, 33, 31, 0.08);
+  }
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -585,8 +703,14 @@ body {
 
   .exercise-editor-row,
   .cardio-editor-row,
-  .toolbar {
+  .toolbar,
+  .landing-hero,
+  .landing-points {
     grid-template-columns: 1fr;
+  }
+
+  .landing-screenshots figure:last-child {
+    width: 100%;
   }
 }
 

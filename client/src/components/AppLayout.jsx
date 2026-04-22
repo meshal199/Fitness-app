@@ -17,16 +17,16 @@ export default function AppLayout() {
         </div>
 
         <nav className="nav-stack">
-          <NavLink to="/" className="nav-item">
+          <NavLink to="/app" className="nav-item">
             <ClipboardList size={18} /> Programs
           </NavLink>
           {isCoach && (
-            <NavLink to="/programs/new" className="nav-item">
+            <NavLink to="/app/programs/new" className="nav-item">
               <Dumbbell size={18} /> Program Editor
             </NavLink>
           )}
           {isCoach && (
-            <NavLink to="/assignments" className="nav-item">
+            <NavLink to="/app/assignments" className="nav-item">
               <Users size={18} /> Assignments
             </NavLink>
           )}

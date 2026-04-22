@@ -56,7 +56,7 @@ export default function Dashboard() {
           <h1>{isCoach ? "Workout programs" : "Assigned program"}</h1>
         </div>
         {isCoach && (
-          <Link className="primary-button" to="/programs/new">
+          <Link className="primary-button" to="/app/programs/new">
             <Plus size={18} /> New program
           </Link>
         )}
@@ -82,7 +82,7 @@ export default function Dashboard() {
               <span>Created by {program.createdBy?.name || "Coach"}</span>
             </div>
             <div className="card-actions">
-              <Link className="secondary-button" to={`/programs/${program._id}`}>
+              <Link className="secondary-button" to={`/app/programs/${program._id}`}>
                 <Eye size={17} /> Open
               </Link>
               {isCoach && (

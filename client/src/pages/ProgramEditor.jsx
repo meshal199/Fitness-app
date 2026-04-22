@@ -72,7 +72,7 @@ export default function ProgramEditor() {
       for (const day of form.days) {
         await saveDay(program._id, day);
       }
-      navigate(`/programs/${program._id}`);
+      navigate(`/app/programs/${program._id}`);
     } finally {
       setSaving(false);
     }

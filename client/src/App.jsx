@@ -4,6 +4,7 @@ import AppLayout from "./components/AppLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Assignments from "./pages/Assignments";
 import Dashboard from "./pages/Dashboard";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import ProgramDetail from "./pages/ProgramDetail";
 import ProgramEditor from "./pages/ProgramEditor";
@@ -12,10 +13,11 @@ import Register from "./pages/Register";
 export default function App() {
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route
-        path="/"
+        path="/app"
         element={
           <ProtectedRoute>
             <AppLayout />
