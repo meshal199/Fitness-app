@@ -2,11 +2,13 @@
     box-sizing: border-box;
   }
 
-  body {
+body {
     margin: 0;
-    background: #f7f3eb;
+    background:
+      linear-gradient(135deg, rgba(247, 243, 235, 0.82), rgba(232, 250, 240, 0.88)),
+      url("../assets/fitness-bg.png") center/cover fixed;
     color: #17211f;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
   }
 
   button,
@@ -23,8 +25,9 @@
     border: 1px solid #d8d5cc;
     border-radius: 8px;
     background: #fffdf8;
-    padding: 0.75rem 0.85rem;
+    padding: 0.85rem 0.95rem;
     color: #17211f;
+    font-size: 1rem;
   }
 
   label {
@@ -38,6 +41,10 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 260px 1fr;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(53, 184, 133, 0.22), transparent 28rem),
+      radial-gradient(circle at 92% 14%, rgba(242, 107, 79, 0.2), transparent 24rem),
+      linear-gradient(120deg, rgba(255, 255, 255, 0.78), rgba(247, 243, 235, 0.58));
   }
 
   .sidebar {
@@ -48,8 +55,11 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1.5rem;
-    background: #17211f;
+    background:
+      linear-gradient(180deg, rgba(23, 33, 31, 0.96), rgba(18, 58, 49, 0.96)),
+      url("../assets/fitness-bg.png") 18% center/cover;
     color: white;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .brand-mark {
@@ -58,9 +68,10 @@
     display: grid;
     place-items: center;
     border-radius: 8px;
-    background: #35b885;
+    background: linear-gradient(135deg, #35b885, #d7f75b);
     color: #17211f;
     font-weight: 900;
+    box-shadow: 0 12px 30px rgba(53, 184, 133, 0.35);
   }
 
   .brand-title {
@@ -84,6 +95,7 @@
   .ghost-button,
   .primary-button,
   .secondary-button,
+  .danger-button,
   .complete-button {
     display: inline-flex;
     align-items: center;
@@ -105,7 +117,7 @@
 
   .nav-item.active,
   .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(90deg, rgba(53, 184, 133, 0.24), rgba(242, 107, 79, 0.2));
     color: white;
   }
 
@@ -115,8 +127,9 @@
   }
 
   .primary-button {
-    background: #35b885;
+    background: linear-gradient(135deg, #35b885, #d7f75b);
     color: #10201b;
+    box-shadow: 0 10px 24px rgba(53, 184, 133, 0.25);
   }
 
   .secondary-button,
@@ -126,8 +139,15 @@
     color: #17211f;
   }
 
+  .danger-button {
+    background: #fff0ec;
+    border: 1px solid #ffc5b8;
+    color: #9d2d1a;
+  }
+
   .content-area {
     padding: 2rem;
+    backdrop-filter: blur(2px);
   }
 
   .page-stack {
@@ -140,6 +160,25 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 8px;
+    padding: 1.25rem;
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, 0.92), rgba(236, 255, 245, 0.82)),
+      url("../assets/fitness-bg.png") center 35%/cover;
+    box-shadow: 0 18px 55px rgba(23, 33, 31, 0.08);
+  }
+
+  .page-header::after {
+    content: "";
+    position: absolute;
+    inset: auto 1rem 0 auto;
+    width: min(38vw, 360px);
+    height: 6px;
+    background: linear-gradient(90deg, #35b885, #d7f75b, #f26b4f);
+    border-radius: 999px 999px 0 0;
   }
 
   .page-header h1,
@@ -151,7 +190,7 @@
 
   .eyebrow {
     margin: 0;
-    color: #f26b4f;
+    color: #d94f35;
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -164,8 +203,8 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 0.75rem;
-    background: white;
-    border: 1px solid #e6e1d8;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: 8px;
     padding: 0.8rem;
   }
@@ -187,8 +226,8 @@
   .auth-card,
   .editor-form,
   .editor-day {
-    background: white;
-    border: 1px solid #e6e1d8;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.76);
     border-radius: 8px;
     box-shadow: 0 18px 55px rgba(23, 33, 31, 0.08);
   }
@@ -197,6 +236,16 @@
     display: grid;
     gap: 1.25rem;
     padding: 1.1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: linear-gradient(90deg, #35b885, #d7f75b, #f26b4f);
   }
 
   .status-pill {
@@ -211,7 +260,7 @@
   }
 
   .status-pill.published {
-    background: #dff6eb;
+    background: linear-gradient(135deg, #dff6eb, #efffb8);
     color: #14734e;
   }
 
@@ -243,7 +292,7 @@
     min-height: 70px;
     border: 1px solid #d8d5cc;
     border-radius: 8px;
-    background: #fffdf8;
+    background: rgba(255, 253, 248, 0.9);
     color: #17211f;
     font-weight: 900;
     text-align: left;
@@ -252,7 +301,7 @@
   }
 
   .day-tabs button.active {
-    background: #17211f;
+    background: linear-gradient(135deg, #17211f, #14734e);
     color: white;
     border-color: #17211f;
   }
@@ -269,6 +318,9 @@
     display: grid;
     gap: 1rem;
     padding: 1rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.93), rgba(240, 255, 247, 0.9)),
+      url("../assets/fitness-bg.png") center/cover;
   }
 
   .day-header {
@@ -289,13 +341,14 @@
   .section-block {
     padding: 1rem;
     box-shadow: none;
+    background: rgba(255, 255, 255, 0.86);
   }
 
   .block-title {
     display: flex;
     align-items: center;
     gap: 0.45rem;
-    color: #14734e;
+    color: #0f8a5a;
     font-size: 0.8rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -321,7 +374,7 @@
 
   .exercise-card-header {
     padding: 0.9rem 1rem;
-    background: #f9faf7;
+    background: linear-gradient(90deg, rgba(53, 184, 133, 0.14), rgba(242, 107, 79, 0.12));
     border-bottom: 1px solid #ece8df;
   }
 
@@ -348,7 +401,7 @@
   }
 
   th {
-    color: #66736f;
+    color: #0f8a5a;
     font-size: 0.75rem;
     text-transform: uppercase;
   }
@@ -360,7 +413,7 @@
     place-items: center;
     border: 0;
     border-radius: 8px;
-    background: #edf8f2;
+    background: linear-gradient(135deg, #edf8f2, #efffb8);
     color: #14734e;
     cursor: pointer;
   }
@@ -383,7 +436,8 @@
     border: 1px solid #ece8df;
     border-radius: 8px;
     padding: 0.8rem;
-    background: #fffdf8;
+    background: linear-gradient(145deg, #fffdf8, #edfff5);
+    box-shadow: inset 4px 0 0 #f26b4f;
   }
 
   .auth-page,
@@ -391,18 +445,76 @@
     min-height: 100vh;
     display: grid;
     place-items: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    background:
+      linear-gradient(120deg, rgba(23, 33, 31, 0.44), rgba(53, 184, 133, 0.28)),
+      url("../assets/fitness-bg.png") center/cover fixed;
   }
 
   .auth-card {
-    width: min(430px, 100%);
+    width: min(520px, 100%);
+    max-height: calc(100vh - 3rem);
+    margin: auto;
     display: grid;
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 1.15rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(215, 247, 91, 0.48);
+    overflow-y: auto;
+    text-align: center;
   }
 
   .auth-card h1 {
     margin: 0;
+    font-size: 2.35rem;
+    line-height: 1.05;
+    color: #0f8a5a;
+    background: linear-gradient(90deg, #0f8a5a, #35b885, #f26b4f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+  }
+
+  .auth-card > svg {
+    justify-self: center;
+    color: #f26b4f;
+    width: 48px;
+    height: 48px;
+  }
+
+  .auth-card p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #32413d;
+  }
+
+  .auth-card label {
+    text-align: left;
+    font-size: 1rem;
+    color: #0f4f3b;
+  }
+
+  .auth-card a {
+    color: #d94f35;
+    font-weight: 800;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .auth-card input,
+  .auth-card select {
+    border-color: rgba(53, 184, 133, 0.42);
+    background: #f8fff8;
+  }
+
+  .auth-card input:focus,
+  .auth-card select:focus {
+    border-color: #f26b4f;
+    box-shadow: 0 0 0 4px rgba(242, 107, 79, 0.14);
+    outline: none;
   }
 
   .error-box {
