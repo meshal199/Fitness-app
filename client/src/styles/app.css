@@ -1,0 +1,485 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: #f7f3eb;
+    color: #17211f;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    border: 1px solid #d8d5cc;
+    border-radius: 8px;
+    background: #fffdf8;
+    padding: 0.75rem 0.85rem;
+    color: #17211f;
+  }
+
+  label {
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+.app-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: #17211f;
+    color: white;
+  }
+
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: #35b885;
+    color: #17211f;
+    font-weight: 900;
+  }
+
+  .brand-title {
+    margin: 1rem 0 0.25rem;
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle,
+  .page-header p,
+  .program-card p {
+    color: #66736f;
+  }
+
+  .nav-stack {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .nav-item,
+  .ghost-button,
+  .primary-button,
+  .secondary-button,
+  .complete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 42px;
+    border: 0;
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .nav-item {
+    justify-content: flex-start;
+    color: #dbe9e4;
+  }
+
+  .nav-item.active,
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .ghost-button {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+  }
+
+  .primary-button {
+    background: #35b885;
+    color: #10201b;
+  }
+
+  .secondary-button,
+  .complete-button {
+    background: #fffdf8;
+    border: 1px solid #d8d5cc;
+    color: #17211f;
+  }
+
+  .content-area {
+    padding: 2rem;
+  }
+
+  .page-stack {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .page-header h1,
+  .day-header h2,
+  .program-card h2 {
+    margin: 0.15rem 0;
+    letter-spacing: 0;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: #f26b4f;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .toolbar,
+  .assignment-form {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    border: 1px solid #e6e1d8;
+    border-radius: 8px;
+    padding: 0.8rem;
+  }
+
+  .assignment-form {
+    grid-template-columns: 1fr 1fr 180px auto;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+  }
+
+  .program-card,
+  .day-panel,
+  .section-block,
+  .exercise-card,
+  .auth-card,
+  .editor-form,
+  .editor-day {
+    background: white;
+    border: 1px solid #e6e1d8;
+    border-radius: 8px;
+    box-shadow: 0 18px 55px rgba(23, 33, 31, 0.08);
+  }
+
+  .program-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.1rem;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    background: #eef4f1;
+    color: #50625c;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .status-pill.published {
+    background: #dff6eb;
+    color: #14734e;
+  }
+
+  .card-meta,
+  .card-actions,
+  .metric-row,
+  .exercise-card-header,
+  .mini-header,
+  .editor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .card-meta {
+    color: #66736f;
+    font-size: 0.85rem;
+  }
+
+  .day-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .day-tabs button {
+    min-height: 70px;
+    border: 1px solid #d8d5cc;
+    border-radius: 8px;
+    background: #fffdf8;
+    color: #17211f;
+    font-weight: 900;
+    text-align: left;
+    padding: 0.8rem;
+    cursor: pointer;
+  }
+
+  .day-tabs button.active {
+    background: #17211f;
+    color: white;
+    border-color: #17211f;
+  }
+
+  .day-tabs span {
+    display: block;
+    margin-top: 0.3rem;
+    color: #8c9894;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .day-panel {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid #ece8df;
+    padding-bottom: 1rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+  }
+
+  .section-block {
+    padding: 1rem;
+    box-shadow: none;
+  }
+
+  .block-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #14734e;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .arabic,
+  small[dir="rtl"] {
+    display: block;
+    margin-top: 0.55rem;
+    color: #43514d;
+    line-height: 1.7;
+  }
+
+  .exercise-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .exercise-card {
+    overflow: hidden;
+    box-shadow: none;
+  }
+
+  .exercise-card-header {
+    padding: 0.9rem 1rem;
+    background: #f9faf7;
+    border-bottom: 1px solid #ece8df;
+  }
+
+  .exercise-card-header h3 {
+    margin: 0;
+  }
+
+  .responsive-table {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid #ece8df;
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: #66736f;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .icon-button {
+    width: 34px;
+    height: 34px;
+    display: inline-grid;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: #edf8f2;
+    color: #14734e;
+    cursor: pointer;
+  }
+
+  .icon-button.danger {
+    background: #fff0ec;
+    color: #c7472f;
+  }
+
+  .cardio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .cardio-item {
+    display: grid;
+    gap: 0.3rem;
+    border: 1px solid #ece8df;
+    border-radius: 8px;
+    padding: 0.8rem;
+    background: #fffdf8;
+  }
+
+  .auth-page,
+  .screen-center {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+  }
+
+  .auth-card {
+    width: min(430px, 100%);
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .auth-card h1 {
+    margin: 0;
+  }
+
+  .error-box {
+    border: 1px solid #ffc5b8;
+    border-radius: 8px;
+    background: #fff0ec;
+    color: #9d2d1a;
+    padding: 0.75rem;
+  }
+
+  .editor-form,
+  .editor-day {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .editor-days {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .exercise-editor-row {
+    display: grid;
+    grid-template-columns: 2fr 0.7fr 0.8fr 0.8fr 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .cardio-editor-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+  }
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
+
+  .page-header,
+  .day-header,
+  .info-grid,
+  .form-grid,
+  .assignment-form {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .day-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exercise-editor-row,
+  .cardio-editor-row,
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .day-tabs {
+    grid-template-columns: 1fr;
+  }
+}
