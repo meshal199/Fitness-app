@@ -79,6 +79,71 @@ npm run build --prefix client
 npm run seed --prefix server
 ```
 
+## Demo Hosting
+
+This repo includes deployment config for a simple public demo:
+
+- `render.yaml` deploys the Express API from `server/`
+- `client/vercel.json` deploys the Vite frontend from `client/`
+- `client/.env.example` shows the frontend API variable
+
+### 1. Database
+
+Create a MongoDB Atlas cluster, database user, and connection string. Use the Atlas URI as `MONGO_URI`.
+
+### 2. Backend on Render
+
+Create a Render Blueprint or Web Service from this GitHub repo.
+
+If using the manual Web Service flow:
+
+```txt
+Root Directory: server
+Build Command: npm install
+Start Command: npm start
+```
+
+Set these Render environment variables:
+
+```env
+MONGO_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_long_random_secret
+CLIENT_URL=https://your-vercel-app.vercel.app
+```
+
+After Render deploys, your API URL will look like:
+
+```txt
+https://your-render-service.onrender.com/api
+```
+
+### 3. Frontend on Vercel
+
+Create a Vercel project from this GitHub repo with:
+
+```txt
+Root Directory: client
+Build Command: npm run build
+Output Directory: dist
+```
+
+Set this Vercel environment variable:
+
+```env
+VITE_API_URL=https://your-render-service.onrender.com/api
+```
+
+Redeploy after changing environment variables.
+
+### 4. Seed Demo Data
+
+After Atlas is ready, seed the demo users and 4-day program against the hosted database:
+
+```bash
+cd server
+MONGO_URI="your_mongodb_atlas_uri" JWT_SECRET="local_seed_secret" npm run seed
+```
+
 ## Notes
 
 - Deleted programs are archived with `deletedAt` so history is not broken.

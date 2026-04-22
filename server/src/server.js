@@ -18,13 +18,15 @@ const app = express();
 const port = process.env.PORT || 5002;
 const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173,http://localhost:5174")
   .split(",")
-  .map((origin) => origin.trim());
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(helmet());
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+      const isVercelPreview = origin && /^https:\/\/.+\.vercel\.app$/.test(origin);
+      if (!origin || allowedOrigins.includes(origin) || isVercelPreview) return callback(null, true);
       return callback(new Error("Not allowed by CORS"));
     }
   })
