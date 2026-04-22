@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CalendarDays, MessageCircle, PlayCircle } from "lucide-react";
+import { CalendarDays, Mail, MessageCircle, Phone, PlayCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import programView from "../assets/landing-program-view.png";
 import editorView from "../assets/landing-editor-view.png";
@@ -18,44 +18,52 @@ export default function Landing() {
       await login("coach@example.com", "password123");
       navigate("/app");
     } catch {
-      setError("Demo login is not ready yet. Seed the hosted database, then try again.");
+      setError("الديمو غير جاهز الآن. تأكد من إضافة بيانات التجربة ثم حاول مرة أخرى.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <main className="landing-page">
+    <main className="landing-page" dir="rtl">
       <nav className="landing-nav">
-        <div className="landing-brand">Fitness Program Manager</div>
-        <Link className="secondary-button" to="/login">Login</Link>
+        <div className="landing-brand">مدير البرامج التدريبية</div>
+        <Link className="secondary-button" to="/login">تسجيل الدخول</Link>
       </nav>
 
       <section className="landing-hero">
         <div className="landing-copy">
-          <p className="eyebrow">For coaches and personal trainers</p>
-          <h1>Manage your clients&apos; workout programs in one place</h1>
-          <p>Replace Excel sheets and WhatsApp messages with a simple system.</p>
+          <p className="eyebrow">للمدربين الشخصيين ومدربي اللياقة</p>
+          <h1>إدارة برامج تمارين عملائك في مكان واحد</h1>
+          <p>استبدل ملفات Excel ورسائل WhatsApp بنظام بسيط ومنظم.</p>
 
           <div className="landing-actions">
             <button className="primary-button" onClick={tryDemo} disabled={loading}>
-              <PlayCircle size={18} /> {loading ? "Opening..." : "Try Demo"}
+              <PlayCircle size={18} /> {loading ? "جاري فتح الديمو..." : "جرّب الديمو"}
             </button>
-            <a className="secondary-button" href="mailto:coach@example.com?subject=Book%20a%20Demo">
-              <CalendarDays size={18} /> Book a Demo
+            <a className="secondary-button" href="mailto:meshal.alhawiti@gmail.com?subject=Book%20a%20Demo&body=Hello%20Meshal,%20I%20would%20like%20to%20book%20a%20demo.">
+              <CalendarDays size={18} /> احجز عرضًا تجريبيًا
             </a>
           </div>
           {error && <div className="error-box">{error}</div>}
+          <div className="landing-contact">
+            <a href="mailto:meshal.alhawiti@gmail.com">
+              <Mail size={17} /> meshal.alhawiti@gmail.com
+            </a>
+            <a href="tel:0549053918">
+              <Phone size={17} /> 0549053918
+            </a>
+          </div>
         </div>
 
         <div className="landing-screenshots">
           <figure>
-            <img src={programView} alt="Program view with Day 1 and Day 2 tabs and exercise table" />
-            <figcaption>Program view: days, warm-up, exercises, cardio</figcaption>
+            <img src={programView} alt="واجهة البرنامج مع أيام التدريب وجدول التمارين" />
+            <figcaption>عرض البرنامج: الأيام، الإحماء، جدول التمارين والكارديو</figcaption>
           </figure>
           <figure>
-            <img src={editorView} alt="Clean workout program editor screen" />
-            <figcaption>Clean UI for editing exercises and plans</figcaption>
+            <img src={editorView} alt="واجهة تعديل برنامج التدريب" />
+            <figcaption>واجهة نظيفة لتعديل التمارين والخطط التدريبية</figcaption>
           </figure>
         </div>
       </section>
@@ -63,15 +71,15 @@ export default function Landing() {
       <section className="landing-points">
         <div>
           <MessageCircle size={20} />
-          <span>No more scattered WhatsApp instructions</span>
+          <span>لا مزيد من تعليمات WhatsApp المتفرقة</span>
         </div>
         <div>
           <CalendarDays size={20} />
-          <span>Day-by-day plans for every client</span>
+          <span>خطة تدريب يومية واضحة لكل عميل</span>
         </div>
         <div>
           <PlayCircle size={20} />
-          <span>Demo data ready for coaches to test</span>
+          <span>ديمو جاهز للتجربة من المدربين</span>
         </div>
       </section>
     </main>
